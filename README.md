@@ -1,28 +1,32 @@
 # support-site
 
-iPhone アプリ **残機 (ZANKI)** の公開サイト。GitHub Pages で配信している。
+作ったアプリの公開ページ。GitHub Pages で配信している。
+
+## 残機 (ZANKI)
 
 | URL | 中身 |
 |---|---|
-| https://sakaniwa-dev.github.io/support-site/ | アプリの紹介ページ |
-| https://sakaniwa-dev.github.io/support-site/zanki/ | サポート／プライバシーポリシー |
+| https://sakaniwa-dev.github.io/support-site/zanki/ | 紹介ページ |
+| https://sakaniwa-dev.github.io/support-site/zanki/support/ | サポート／プライバシーポリシー |
 
-`zanki/` の URL は App Store Connect の **サポートURL** と
-**プライバシーポリシーURL** の両方に登録してある。**リンク切れにしないこと。**
+**`zanki/support/` の URL は App Store Connect の サポートURL と
+プライバシーポリシーURL の両方に登録する。リンク切れにしないこと。**
 公開後に切れると、アプリが取り下げられることがある。
 
 ## 構成
 
-    index.html      紹介ページ
-    zanki/index.html サポート／プライバシーポリシー
-    assets/         アプリのスクリーンショットとアイコン
+    index.html                 アプリ一覧（入口）
+    zanki/
+      index.html               紹介ページ
+      support/index.html       サポート／プライバシーポリシー
+      assets/                  スクリーンショットとアイコン
 
-外部リソースは読み込んでいない。1ファイルに CSS を同梱した素の HTML。
-ダークモードは `prefers-color-scheme` に追従する。
+アプリごとに1ディレクトリ。外部リソースは読み込んでいない。
+CSS を同梱した素の HTML で、ダークモードは `prefers-color-scheme` に追従する。
 
-## 公開されたら
+## 残機が公開されたら
 
-`index.html` の「使ってみる」セクションに
+`zanki/index.html` の「使ってみる」セクションに
 
 ```html
 <!-- 公開されたら下のボタンを App Store のリンクに差し替える -->
@@ -33,9 +37,9 @@ iPhone アプリ **残機 (ZANKI)** の公開サイト。GitHub Pages で配信�
 
 ## スクリーンショットの差し替え
 
-アプリ側リポジトリの `screenshots/` にある 1320×2868 の原本を、
-横 660px に縮めて `assets/` に置いている。
+アプリ側リポジトリ（`sakaniwa-dev/zanki`）の `screenshots/` にある
+1320×2868 の原本を、横 660px に縮めて `zanki/assets/` に置いている。
 
 ```bash
-sips -Z 660 ../zanki/screenshots/01-home.png --out assets/01-home.png
+sips -Z 660 ../zanki/screenshots/01-home.png --out zanki/assets/01-home.png
 ```
