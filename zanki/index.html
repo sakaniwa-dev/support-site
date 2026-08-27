@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>残機 — あと何回休めるか、それだけ。</title>
-<meta name="description" content="履修科目ごとに「あと何回休めるか」だけを数える iPhone アプリ。公欠と休講を分けて数えます。">
+<meta name="description" content="履修科目ごとに「あと何回休めるか」だけを数える iPhone アプリ。公欠と休講を分けて数えます。App Store で配信中、無料。">
 <meta property="og:title" content="残機 — あと何回休めるか、それだけ。">
 <meta property="og:description" content="履修科目ごとに「あと何回休めるか」だけを数える iPhone アプリ。">
 <meta property="og:type" content="website">
@@ -59,10 +59,11 @@ h1{font-size:clamp(56px,14vw,104px);font-weight:800}
 .mark::before{content:"";position:absolute;inset:4% -3% 6% -3%;background:var(--mark);border-radius:3px;transform:rotate(-1.2deg);z-index:-1}
 .tagline{margin:22px 0 0;font-size:clamp(20px,4.4vw,30px);font-weight:700;letter-spacing:-.03em;line-height:1.4}
 .lede{margin:16px 0 0;font-size:clamp(16px,2.4vw,18px);color:var(--ink-2);max-width:44ch}
-.badge{display:inline-flex;align-items:center;gap:8px;margin-top:26px;
-  font-size:13px;font-weight:700;border:1px solid var(--line-2);border-radius:999px;
-  padding:8px 16px;background:var(--surf);color:var(--ink-2)}
-.badge .dot{width:7px;height:7px;border-radius:50%;background:var(--warn)}
+.ctaHero{display:flex;flex-wrap:wrap;align-items:center;gap:14px;margin:28px 0 0}
+.ctaHero .meta{font-size:13px;font-weight:600;color:var(--ink-3)}
+nav a.get{border:1px solid var(--line-2);border-radius:999px;padding:6px 14px;background:var(--surf);color:var(--ink)}
+nav a.get:hover{border-color:var(--ink-3)}
+.fine{margin:16px 0 0;font-size:13px;color:var(--ink-3)}
 
 .heroGrid{display:grid;grid-template-columns:1fr;gap:clamp(32px,5vw,48px);align-items:center}
 @media (min-width:860px){.heroGrid{grid-template-columns:1fr 250px}}
@@ -149,6 +150,7 @@ footer a{color:var(--ink-2)}
     <span class="sp"></span>
     <a class="lnk" href="#screens">画面</a>
     <a class="lnk" href="support/">サポート</a>
+    <a class="lnk get" href="https://apps.apple.com/jp/app/id6804644002">入手</a>
   </div>
 </nav>
 
@@ -160,7 +162,10 @@ footer a{color:var(--ink-2)}
       <h1><span class="mark">残機</span></h1>
       <p class="tagline">あと何回休めるか、それだけ。</p>
       <p class="lede">履修科目ごとに「あと何回休めるか」を数えます。授業のたびに1タップ。残りが少ない科目から順に並びます。</p>
-      <p class="badge"><span class="dot"></span>App Store 審査中</p>
+      <p class="ctaHero">
+        <a class="btn primary" href="https://apps.apple.com/jp/app/id6804644002">App Store で入手</a>
+        <span class="meta">無料 · 約1MB · iOS 17.0 以降</span>
+      </p>
     </div>
     <div class="heroShot">
       <div class="phone"><img src="assets/01-home.png" alt="残機の一覧画面。科目ごとに残り回数が大きく表示されている" width="660" height="1434"></div>
@@ -275,12 +280,12 @@ footer a{color:var(--ink-2)}
 <section>
 <div class="wrap">
   <h2>使ってみる</h2>
-  <p class="sub">現在 App Store の審査中です。公開までもう少しお待ちください。</p>
-  <!-- 公開されたら下のボタンを App Store のリンクに差し替える -->
+  <p class="sub">App Store で配信中です。無料、アカウント登録もいりません。</p>
   <div class="ctaRow">
-    <a class="btn primary" href="support/#support">質問・要望を送る</a>
-    <a class="btn" href="support/">プライバシーポリシー</a>
+    <a class="btn primary" href="https://apps.apple.com/jp/app/id6804644002">App Store で入手</a>
+    <a class="btn" href="support/#support">質問・要望を送る</a>
   </div>
+  <p class="fine">iPhone / iOS 17.0 以降 · 約1MB · 広告なし · アプリ内課金なし</p>
 </div>
 </section>
 

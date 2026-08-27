@@ -6,6 +6,7 @@
 
 | URL | 中身 |
 |---|---|
+| https://apps.apple.com/jp/app/id6804644002 | App Store |
 | https://sakaniwa-dev.github.io/support-site/zanki/ | 紹介ページ |
 | https://sakaniwa-dev.github.io/support-site/zanki/support/ | サポート／プライバシーポリシー |
 
@@ -24,16 +25,18 @@
 アプリごとに1ディレクトリ。外部リソースは読み込んでいない。
 CSS を同梱した素の HTML で、ダークモードは `prefers-color-scheme` に追従する。
 
-## 残機が公開されたら
+## App Store
 
-`zanki/index.html` の「使ってみる」セクションに
+    https://apps.apple.com/jp/app/id6804644002
 
-```html
-<!-- 公開されたら下のボタンを App Store のリンクに差し替える -->
+2026年8月26日公開。v1.0、無料、約1MB。掲載情報の確認:
+
+```bash
+curl -s "https://itunes.apple.com/lookup?id=6804644002&country=jp" | python3 -m json.tool
 ```
 
-というコメントがある。そこに App Store のリンクを足し、
-ヒーローの `App Store 審査中` バッジを消す。
+App Store のリンクは `zanki/index.html` に3箇所（ナビ／ヒーロー／使ってみる）、
+`index.html` に1箇所ある。差し替えるときは全部直すこと。
 
 ## スクリーンショットの差し替え
 
