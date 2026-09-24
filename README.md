@@ -23,8 +23,11 @@
       assets/                  イラスト（WebP）・スクリーンショット（WebP）・アイコン
 
 アプリごとに1ディレクトリ。CSS / JS を同梱した素の HTML。
-`zanki/index.html` だけは Google Fonts（Dela Gothic One / M PLUS Rounded 1c / DotGothic16）を読み込む。
-それ以外のページは外部リソースなしで、ダークモードは `prefers-color-scheme` に追従する。
+全ページが残機の紹介ページと同じデザイン（黄緑 `#E0F352` × 墨 `#191E27`、ライトのみ）で、
+外部から読み込むのは Google Fonts（Dela Gothic One / M PLUS Rounded 1c / DotGothic16）だけ。
+
+**プライバシーポリシーの文面を変えるときは、`zanki/support/index.html` の最終更新日も改めること。**
+見た目だけの変更なら日付はそのまま。
 
 ## App Store
 
