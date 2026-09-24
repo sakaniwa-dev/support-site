@@ -2,119 +2,259 @@
 <html lang="ja">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>残機 ZANKI — サポート / プライバシーポリシー</title>
+<link rel="icon" href="../assets/icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Dela+Gothic+One&family=DotGothic16&family=M+PLUS+Rounded+1c:wght@400;500;700;800&display=swap">
 <style>
-:root{
-  --bg:#EAEBEE; --surf:#F8F9FA; --line:#D2D6DD;
-  --ink:#13171C; --ink-2:#49515C; --ink-3:#79828F;
-  --mark:#D8F546; --mark-ink:#13171C;
-}
-@media (prefers-color-scheme:dark){
-  :root{
-    --bg:#0F1216; --surf:#181D24; --line:#262D37;
-    --ink:#EDF1F6; --ink-2:#A3AEBC; --ink-3:#6F7B8A;
-    --mark:#C9E839; --mark-ink:#0F1216;
+  /* 紹介ページ（../index.html）と同じ世界観。アイコンの黄緑×墨で固定し、ダークは持たない。 */
+  :root {
+    color-scheme: light;
+    --lime: #E0F352;
+    --ink: #191E27;
+    --ink-soft: #3A4150;
+    --paper: #F7F9E8;
+    --card: #FFFFFF;
+    --heart: #F0525A;
+    --mute: #6B7280;
+    --line: #E2E6CF;
+
+    --f-display: "Dela Gothic One", "Hiragino Sans", "Yu Gothic", sans-serif;
+    --f-body: "M PLUS Rounded 1c", "Hiragino Maru Gothic ProN", "Hiragino Sans", sans-serif;
+    --f-pixel: "DotGothic16", ui-monospace, "Osaka-Mono", monospace;
+
+    --gutter: clamp(16px, 4vw, 40px);
+    --pixel-heart: polygon(0 15%,15% 15%,15% 0,43% 0,43% 15%,57% 15%,57% 0,85% 0,85% 15%,100% 15%,100% 57%,85% 57%,85% 72%,71% 72%,71% 86%,57% 86%,57% 100%,43% 100%,43% 86%,29% 86%,29% 72%,15% 72%,15% 57%,0 57%);
   }
-}
-*{box-sizing:border-box}
-body{margin:0;background:var(--bg);color:var(--ink);
-  font-family:-apple-system,BlinkMacSystemFont,"Hiragino Sans","Yu Gothic UI",system-ui,sans-serif;
-  font-size:16px;line-height:1.85;-webkit-font-smoothing:antialiased}
-.wrap{max-width:720px;margin:0 auto;padding:0 clamp(20px,5vw,32px)}
-header{padding:clamp(48px,10vw,88px) 0 clamp(28px,5vw,44px)}
-h1{margin:0;font-size:clamp(44px,10vw,72px);font-weight:800;letter-spacing:-.03em;line-height:1.1}
-.mark{position:relative;isolation:isolate;color:var(--mark-ink);padding:0 .1em;display:inline-block}
-.mark::before{content:"";position:absolute;inset:4% -3% 6% -3%;background:var(--mark);border-radius:3px;transform:rotate(-1.2deg);z-index:-1}
-.romaji{font-size:13px;font-weight:700;letter-spacing:.34em;color:var(--ink-3);margin-top:14px}
-.lede{margin-top:18px;font-size:clamp(16px,2.2vw,18px);color:var(--ink-2);max-width:46ch}
-hr{border:0;height:1px;background:var(--line);margin:0}
-section{padding:clamp(34px,6vw,54px) 0}
-h2{font-size:clamp(22px,3.4vw,28px);font-weight:800;letter-spacing:-.02em;margin:0 0 6px}
-h3{font-size:17px;font-weight:700;margin:28px 0 4px}
-p{margin:10px 0}
-.card{background:var(--surf);border:1px solid var(--line);border-radius:16px;padding:22px 24px;margin-top:18px}
-.big{font-size:clamp(24px,4vw,32px);font-weight:800;letter-spacing:-.02em;margin:0}
-a{color:inherit;text-decoration-color:var(--ink-3);text-underline-offset:3px}
-.mail{font-weight:700;font-size:18px}
-ul{padding-left:1.2em;margin:10px 0}
-li{margin:6px 0;color:var(--ink-2)}
-li b{color:var(--ink)}
-.meta{font-size:13.5px;color:var(--ink-3)}
-footer{padding:40px 0 72px;color:var(--ink-3);font-size:13.5px}
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0; background: var(--paper); color: var(--ink);
+    font-family: var(--f-body); font-size: 16px; line-height: 1.9;
+    -webkit-font-smoothing: antialiased; overflow-x: clip;
+  }
+  img { max-width: 100%; height: auto; display: block; }
+  a { color: inherit; text-underline-offset: 4px; text-decoration-thickness: 2px; text-decoration-color: var(--heart); }
+  :focus-visible { outline: 3px solid var(--heart); outline-offset: 3px; border-radius: 8px; }
+  .wrap { max-width: 1160px; margin-inline: auto; padding-inline: var(--gutter); }
+  .col { max-width: 760px; }
+
+  /* nav（紹介ページと同じ） */
+  .nav {
+    position: sticky; top: env(safe-area-inset-top, 0px); z-index: 20;
+    background: color-mix(in srgb, var(--lime) 88%, transparent);
+    backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
+    border-bottom: 2.5px solid var(--ink);
+  }
+  .nav .wrap { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding-block: 12px; }
+  .brand { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+  .brand img { width: 36px; height: 36px; border-radius: 9px; border: 2px solid var(--ink); }
+  .brand b { font: 400 22px/1 var(--f-display); }
+  .brand span { font: 13px/1 var(--f-pixel); letter-spacing: .12em; color: var(--ink-soft); }
+  .nav-links { display: flex; align-items: center; gap: clamp(12px, 2.4vw, 28px); font-weight: 700; font-size: 14px; }
+  .nav-links a { text-decoration: none; }
+  .nav-links a:not(.btn):hover { text-decoration: underline wavy var(--heart); text-underline-offset: 6px; }
+  .btn {
+    display: inline-flex; align-items: center; gap: 8px; font: 800 14px/1 var(--f-body);
+    padding: 10px 18px; border-radius: 999px; border: 2.5px solid var(--ink); text-decoration: none;
+    background: var(--ink); color: var(--lime); box-shadow: 3px 3px 0 var(--heart);
+    transition: transform .15s, box-shadow .15s;
+  }
+  .btn:hover { transform: translate(-2px, -2px); box-shadow: 5px 5px 0 var(--heart); }
+  @media (max-width: 640px) { .nav-links a:not(.btn) { display: none; } }
+
+  /* header */
+  .head { background: var(--lime); border-bottom: 2.5px solid var(--ink); position: relative; overflow: hidden; }
+  .head::before {
+    content: ""; position: absolute; inset: 0; pointer-events: none;
+    background-image: radial-gradient(color-mix(in srgb, var(--ink) 14%, transparent) 1.2px, transparent 1.4px);
+    background-size: 22px 22px; mask-image: linear-gradient(90deg, #000, transparent 70%);
+  }
+  .head .wrap { position: relative; padding-block: clamp(40px, 7vw, 72px) clamp(36px, 6vw, 56px); display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 24px; align-items: end; }
+  .eyebrow { font: 14px/1 var(--f-pixel); letter-spacing: .14em; display: inline-flex; align-items: center; gap: 8px; }
+  .eyebrow::before { content: ""; width: 10px; height: 10px; background: var(--heart); box-shadow: 2px 2px 0 var(--ink); }
+  h1 { font: 400 clamp(36px, 6.4vw, 72px)/1.15 var(--f-display); letter-spacing: -.01em; margin: 18px 0 0; text-wrap: balance; }
+  .lede { margin: 16px 0 0; font-weight: 500; font-size: clamp(16px, 1.8vw, 18px); max-width: 32em; }
+  .jump { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 24px; }
+  .jump a {
+    font: 800 14px/1 var(--f-body); text-decoration: none; padding: 10px 16px; border-radius: 999px;
+    background: var(--card); border: 2.5px solid var(--ink); box-shadow: 3px 3px 0 var(--ink);
+    transition: transform .12s, box-shadow .12s;
+  }
+  .jump a:hover { transform: translate(-1px, -1px); box-shadow: 4px 4px 0 var(--ink); }
+  .jump a:active { transform: translate(3px, 3px); box-shadow: 0 0 0 var(--ink); }
+  .head-art { width: clamp(120px, 18vw, 200px); margin-bottom: -12px; filter: drop-shadow(0 14px 12px rgba(40, 50, 0, .2)); }
+  @media (prefers-reduced-motion: no-preference) { .head-art { animation: bob 3.8s ease-in-out infinite; } }
+  @keyframes bob { 50% { transform: translateY(-10px) rotate(3deg); } }
+  @media (max-width: 640px) { .head .wrap { grid-template-columns: minmax(0, 1fr); } .head-art { display: none; } }
+
+  /* sections */
+  section { padding-block: clamp(56px, 8vw, 96px); scroll-margin-top: 64px; }
+  section + section { border-top: 2.5px dashed color-mix(in srgb, var(--ink) 25%, transparent); }
+  h2 { font: 400 clamp(28px, 4vw, 44px)/1.2 var(--f-display); margin: 14px 0 0; }
+  h3 {
+    font-weight: 800; font-size: 18px; margin: 40px 0 8px; line-height: 1.5;
+    display: flex; align-items: center; gap: 10px;
+  }
+  h3::before { content: ""; width: 12px; height: 11px; background: var(--heart); clip-path: var(--pixel-heart); flex: none; }
+  p { margin: 12px 0; }
+  b { font-weight: 800; }
+  .meta { font: 14px/1.6 var(--f-pixel); letter-spacing: .06em; color: var(--mute); }
+
+  .card { background: var(--card); border: 2.5px solid var(--ink); border-radius: 24px; padding: clamp(20px, 3vw, 28px); margin-top: 24px; box-shadow: 6px 6px 0 var(--ink); }
+  .mail-card { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px 20px; }
+  .mail { font-weight: 800; font-size: clamp(17px, 2.4vw, 22px); margin: 0; overflow-wrap: anywhere; }
+  .copy {
+    font: 800 14px/1 var(--f-body); cursor: pointer; padding: 10px 16px; border-radius: 999px;
+    border: 2.5px solid var(--ink); background: var(--lime); color: var(--ink); box-shadow: 3px 3px 0 var(--ink);
+  }
+  .copy:active { transform: translate(3px, 3px); box-shadow: 0 0 0 var(--ink); }
+
+  ul.steps { list-style: none; padding: 0; margin: 16px 0; display: grid; gap: 10px; }
+  ul.steps li {
+    background: var(--card); border: 2px solid var(--line); border-radius: 16px; padding: 12px 16px;
+    color: var(--ink-soft); display: flex; gap: 12px; align-items: baseline;
+  }
+  ul.steps li::before { content: "▶"; font: 12px/1 var(--f-pixel); color: var(--heart); flex: none; }
+  ul.steps b { color: var(--ink); }
+
+  .faq p { background: var(--card); border: 2px solid var(--line); border-radius: 16px; padding: 14px 18px; color: var(--ink-soft); }
+  .faq p b { color: var(--ink); display: inline-block; margin-bottom: 2px; }
+
+  .zero { background: var(--ink); color: var(--paper); box-shadow: 6px 6px 0 var(--heart); }
+  .zero .big { font: 400 clamp(24px, 4vw, 36px)/1.35 var(--f-display); color: var(--lime); margin: 0; }
+  .zero p:last-child { margin: 12px 0 0; color: #C9CFD9; }
+
+  footer { background: var(--ink); color: #B9C0CC; font-size: 14px; }
+  footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 20px; padding-block: 40px; align-items: center; }
+  footer .brand b { color: var(--lime); }
+  footer nav { display: flex; gap: 20px; flex-wrap: wrap; }
+  footer a { text-decoration: none; } footer a:hover { color: var(--lime); }
+  .credit { font: 12px/1.6 var(--f-pixel); letter-spacing: .06em; width: 100%; color: #7E8696; margin: 0; }
 </style>
 </head>
 <body>
 
-<div class="wrap">
-<header>
-  <h1><span class="mark">残機</span></h1>
-  <div class="romaji">ZANKI</div>
-  <p class="lede">履修科目ごとに「あと何回休めるか」を数えるiOSアプリです。</p>
+<header class="nav">
+  <div class="wrap">
+    <a class="brand" href="../" aria-label="残機 紹介ページへ">
+      <img src="../assets/icon.png" alt="" width="36" height="36">
+      <b>残機</b><span>ZANKI</span>
+    </a>
+    <nav class="nav-links" aria-label="ページ内">
+      <a href="#support">サポート</a>
+      <a href="#privacy">プライバシー</a>
+      <a class="btn" href="https://apps.apple.com/jp/app/id6804644002">App Store</a>
+    </nav>
+  </div>
 </header>
-<hr>
 
-<section id="support">
-  <h2>サポート</h2>
-  <p>使い方の質問、不具合の報告、改善要望などは下記までお送りください。個人制作のため返信に数日ほどいただくことがあります。</p>
-  <div class="card">
-    <p style="margin:0 0 6px" class="meta">連絡先</p>
-    <p class="mail" style="margin:0"><a href="mailto:citysilva2612084@gmail.com">citysilva2612084@gmail.com</a></p>
-  </div>
-  <h3>不具合を知らせるとき</h3>
-  <p>次の3つがあると原因を追いやすくなります。</p>
-  <ul>
-    <li><b>iOS のバージョン</b>（設定 → 一般 → 情報）</li>
-    <li><b>何をしたときに起きたか</b></li>
-    <li><b>どうなると思っていたか</b></li>
-  </ul>
-  <h3>よくある質問</h3>
-  <p><b>Q. 記録は他の端末と同期されますか？</b><br>
-  いいえ。記録は使っている端末の中だけに保存されます。今後は同期機能を追加予定です。</p>
-  <p><b>Q. アプリを消したら記録はどうなりますか？</b><br>
-  端末から一緒に消えます。</p>
-  <p><b>Q. 「休める回数」は何を入れればいいですか？</b><br>
-  シラバスに「◯回以上の欠席で不可」と書いてあれば、その回数から1を引いた数です。初期値では総回数の3分の1となっています。</p>
-</section>
-<hr>
-
-<section id="privacy">
-  <h2>プライバシーポリシー</h2>
-  <p class="meta">最終更新日: 2026年8月24日</p>
-
-  <div class="card">
-    <p class="big">収集する情報はありません。</p>
-    <p style="margin:10px 0 0;color:var(--ink-2)">残機は、利用者に関するいかなる情報も収集・送信しません。開発者が利用者のデータを見ることはできません。</p>
+<main>
+  <div class="head">
+    <div class="wrap">
+      <div>
+        <span class="eyebrow">SUPPORT &amp; PRIVACY</span>
+        <h1>サポート／<br>プライバシーポリシー</h1>
+        <p class="lede">履修科目ごとに「あと何回休めるか」を数えるiOSアプリです。</p>
+        <div class="jump">
+          <a href="#support">サポート ↓</a>
+          <a href="#privacy">プライバシーポリシー ↓</a>
+        </div>
+      </div>
+      <img class="head-art" src="../assets/phone.webp" alt="" width="900" height="1318">
+    </div>
   </div>
 
-  <h3>アプリが保存するもの</h3>
-  <p>登録した科目名・曜日・時限・出欠の記録・各種設定は、<b>すべて利用者の端末の中だけ</b>に保存されます。外部のサーバーに送信されることはありません。アプリを削除すると、これらのデータも端末から消えます。バックアップは iPhone 自体のバックアップ機能に従います。</p>
+  <div class="wrap">
+    <div class="col">
+      <section id="support">
+        <span class="eyebrow">SUPPORT</span>
+        <h2>サポート</h2>
+        <p>使い方の質問、不具合の報告、改善要望などは下記までお送りください。個人制作のため返信に数日ほどいただくことがあります。</p>
+        <div class="card mail-card">
+          <div>
+            <p class="meta" style="margin:0 0 4px">連絡先</p>
+            <p class="mail"><a href="mailto:citysilva2612084@gmail.com" id="mailAddr">citysilva2612084@gmail.com</a></p>
+          </div>
+          <button class="copy" type="button" id="copyMail">アドレスをコピー</button>
+        </div>
 
-  <h3>第三者への提供</h3>
-  <p>広告・解析・クラッシュレポートを含め、<b>第三者のライブラリを一切使用していません</b>。そのため、第三者に情報が渡ることはありません。</p>
+        <h3>不具合を知らせるとき</h3>
+        <p>次の3つがあると原因を追いやすくなります。</p>
+        <ul class="steps">
+          <li><span><b>iOS のバージョン</b>（設定 → 一般 → 情報）</span></li>
+          <li><span><b>何をしたときに起きたか</b></span></li>
+          <li><span><b>どうなると思っていたか</b></span></li>
+        </ul>
 
-  <h3>通知</h3>
-  <p>授業前の通知は、すべて端末内で組み立てて端末内で発行されます（ローカル通知）。通知のためにサーバーと通信することはありません。</p>
+        <h3>よくある質問</h3>
+        <div class="faq">
+          <p><b>Q. 記録は他の端末と同期されますか？</b><br>
+          いいえ。記録は使っている端末の中だけに保存されます。今後は同期機能を追加予定です。</p>
+          <p><b>Q. アプリを消したら記録はどうなりますか？</b><br>
+          端末から一緒に消えます。</p>
+          <p><b>Q. 「休める回数」は何を入れればいいですか？</b><br>
+          シラバスに「◯回以上の欠席で不可」と書いてあれば、その回数から1を引いた数です。初期値では総回数の3分の1となっています。</p>
+        </div>
+      </section>
 
-  <h3>トラッキング</h3>
-  <p>広告識別子（IDFA）の取得や、他社のアプリ・サイトをまたいだ追跡は行いません。</p>
+      <section id="privacy">
+        <span class="eyebrow">PRIVACY POLICY</span>
+        <h2>プライバシーポリシー</h2>
+        <p class="meta">最終更新日: 2026年8月24日</p>
 
-  <h3>子どものプライバシー</h3>
-  <p>情報を収集しないため、年齢にかかわらず収集される情報はありません。</p>
+        <div class="card zero">
+          <p class="big">収集する情報はありません。</p>
+          <p>残機は、利用者に関するいかなる情報も収集・送信しません。開発者が利用者のデータを見ることはできません。</p>
+        </div>
 
-  <h3>お問い合わせ</h3>
-  <p>本ポリシーについてのご質問は <a href="mailto:citysilva2612084@gmail.com">citysilva2612084@gmail.com</a> までお願いします。</p>
+        <h3>アプリが保存するもの</h3>
+        <p>登録した科目名・曜日・時限・出欠の記録・各種設定は、<b>すべて利用者の端末の中だけ</b>に保存されます。外部のサーバーに送信されることはありません。アプリを削除すると、これらのデータも端末から消えます。バックアップは iPhone 自体のバックアップ機能に従います。</p>
 
-  <h3>変更について</h3>
-  <p>本ポリシーを変更する場合は、このページを更新し、上記の最終更新日を改めます。</p>
-</section>
-<hr>
+        <h3>第三者への提供</h3>
+        <p>広告・解析・クラッシュレポートを含め、<b>第三者のライブラリを一切使用していません</b>。そのため、第三者に情報が渡ることはありません。</p>
+
+        <h3>通知</h3>
+        <p>授業前の通知は、すべて端末内で組み立てて端末内で発行されます（ローカル通知）。通知のためにサーバーと通信することはありません。</p>
+
+        <h3>トラッキング</h3>
+        <p>広告識別子（IDFA）の取得や、他社のアプリ・サイトをまたいだ追跡は行いません。</p>
+
+        <h3>子どものプライバシー</h3>
+        <p>情報を収集しないため、年齢にかかわらず収集される情報はありません。</p>
+
+        <h3>お問い合わせ</h3>
+        <p>本ポリシーについてのご質問は <a href="mailto:citysilva2612084@gmail.com">citysilva2612084@gmail.com</a> までお願いします。</p>
+
+        <h3>変更について</h3>
+        <p>本ポリシーを変更する場合は、このページを更新し、上記の最終更新日を改めます。</p>
+      </section>
+    </div>
+  </div>
+</main>
 
 <footer>
-  残機 ZANKI<br>
-  © 2026 Hikaru Sakaniwa
+  <div class="wrap">
+    <a class="brand" href="../"><img src="../assets/icon.png" alt="" width="36" height="36"><b>残機</b><span>ZANKI</span></a>
+    <nav aria-label="フッター">
+      <a href="../">紹介ページ</a>
+      <a href="#support">サポート</a>
+      <a href="#privacy">プライバシーポリシー</a>
+      <a href="../../">ほかのアプリ</a>
+    </nav>
+    <p class="credit">残機 ZANKI ／ © 2026 Hikaru Sakaniwa</p>
+  </div>
 </footer>
-</div>
 
+<script>
+  document.getElementById("copyMail").addEventListener("click", async (e) => {
+    const btn = e.currentTarget, addr = document.getElementById("mailAddr").textContent;
+    try { await navigator.clipboard.writeText(addr); btn.textContent = "コピーしました"; }
+    catch { getSelection().selectAllChildren(document.getElementById("mailAddr")); btn.textContent = "選択しました"; }
+    setTimeout(() => { btn.textContent = "アドレスをコピー"; }, 1800);
+  });
+</script>
 </body>
 </html>
