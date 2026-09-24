@@ -18,12 +18,13 @@
 
     index.html                 アプリ一覧（入口）
     zanki/
-      index.html               紹介ページ
+      index.html               紹介ページ（原本はアプリ側リポジトリの homepage/index.html）
       support/index.html       サポート／プライバシーポリシー
-      assets/                  スクリーンショットとアイコン
+      assets/                  イラスト（WebP）・スクリーンショット（WebP）・アイコン
 
-アプリごとに1ディレクトリ。外部リソースは読み込んでいない。
-CSS を同梱した素の HTML で、ダークモードは `prefers-color-scheme` に追従する。
+アプリごとに1ディレクトリ。CSS / JS を同梱した素の HTML。
+`zanki/index.html` だけは Google Fonts（Dela Gothic One / M PLUS Rounded 1c / DotGothic16）を読み込む。
+それ以外のページは外部リソースなしで、ダークモードは `prefers-color-scheme` に追従する。
 
 ## App Store
 
@@ -35,14 +36,18 @@ CSS を同梱した素の HTML で、ダークモードは `prefers-color-scheme
 curl -s "https://itunes.apple.com/lookup?id=6804644002&country=jp" | python3 -m json.tool
 ```
 
-App Store のリンクは `zanki/index.html` に3箇所（ナビ／ヒーロー／使ってみる）、
-`index.html` に1箇所ある。差し替えるときは全部直すこと。
+App Store のリンクは `zanki/index.html` 末尾の `APP_STORE_URL` の1か所（ボタン3つがここを見る）と、
+`index.html` に1箇所ある。差し替えるときは両方直すこと。
 
-## スクリーンショットの差し替え
+## 紹介ページの更新
 
-アプリ側リポジトリ（`sakaniwa-dev/zanki`）の `screenshots/` にある
-1320×2868 の原本を、横 660px に縮めて `zanki/assets/` に置いている。
+原本はアプリ側リポジトリ（`sakaniwa-dev/zanki`）の `homepage/`。
+向こうで直したら、`index.html` と `assets/*.webp` をこちらにコピーし、
+サポートへのリンクを相対パスに戻す（原本は絶対URL、こちらは `support/#support` / `support/#privacy`）。
+フッターの「ほかのアプリ」（`../`）はこちらにだけある。
 
 ```bash
-sips -Z 660 ../zanki/screenshots/01-home.png --out zanki/assets/01-home.png
+cp ../zanki/homepage/assets/*.webp zanki/assets/
 ```
+
+`icon.png` はこちらの 240px 版をそのまま使っている。
